@@ -19,4 +19,8 @@
 
 ## 使用方式
 1. 執行 crawl.py 以爬取 MOPS 投資法人資料
+   ```bash
+   python crawl.py
 2. 執行 TWSE_crawl.py 以爬取 TWSE 每日歷史數據
+   ```bash
+   python TWSE_crawl.py
