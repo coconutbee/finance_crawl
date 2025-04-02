@@ -67,7 +67,7 @@ def get_query_links(main_url, years, quarters):
 
 def main():
     # 使用者輸入查詢頁面 URL（例如 MOPS 查詢頁面）
-    web_list_url = ["https://mops.twse.com.tw/mops/#/web/t51sb02"] 
+    web_list_url = ["https://mops.twse.com.tw/mops/#/web/t51sb02","https://mops.twse.com.tw/mops/#/web/t163sb20","https://mops.twse.com.tw/mops/#/web/t163sb05", "https://mops.twse.com.tw/mops/#/web/t163sb04"] 
     cleaned_urls = [url.strip() for url in web_list_url]
     print("清理後的查詢頁面 URL：", cleaned_urls)
     for web_url in web_list_url:
