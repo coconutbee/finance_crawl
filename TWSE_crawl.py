@@ -6,7 +6,9 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
+
 from repair import repair_csv_files  # 假設這個模組能修正亂碼 CSV
+from remove_empty import repair_csv, remove_special_line  # 假設這個模組能修正空白行
 
 def crawl_twse_data():
     # 1. 設定主要下載路徑 (全部先下載到這裡)
@@ -24,7 +26,7 @@ def crawl_twse_data():
     }
     chrome_options.add_experimental_option("prefs", prefs)
     # 如果不需要顯示瀏覽器，可以加上 headless 模式
-    chrome_options.add_argument("--headless")
+    # chrome_options.add_argument("--headless")
 
     driver = webdriver.Chrome(options=chrome_options)
     wait = WebDriverWait(driver, 15)
@@ -43,7 +45,7 @@ def crawl_twse_data():
         )
 
         # 迭代民國 79 ~ 113 年，1 ~ 12 月
-        for min_guo_year in range(79, 114):
+        for min_guo_year in range(82, 114):
             # year_select
             real_year = min_guo_year + 1911  # 下拉選單中的 value
             year_select = Select(year_select_elem)
@@ -62,7 +64,8 @@ def crawl_twse_data():
                 month_value = str(month)
                 month_select.select_by_value(month_value)
                 time.sleep(1)
-
+                search_button = driver.find_element(By.XPATH, "//button[@class='search']")
+                search_button.click() 
                 # 點擊 CSV 下載按鈕
                 csv_button = wait.until(
                     EC.element_to_be_clickable((By.CSS_SELECTOR, 'button.csv'))
@@ -99,3 +102,5 @@ def crawl_twse_data():
 if __name__ == "__main__":
     dir = crawl_twse_data()
     repair_csv_files(dir)  # 將剛下載的 CSV 進行亂碼修復
+    repair_csv(dir)
+    #remove_special_line(dir)  # 去除特定行
