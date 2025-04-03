@@ -74,7 +74,7 @@ def crawl_twse_data():
                 print(f"已點擊下載：民國{min_guo_year}年{month}月")
 
                 # 等待下載完成
-                time.sleep(3)
+                time.sleep(2)
 
                 # 取得剛剛下載的檔案（fmthtq.csv 或 fmthtq(1).csv 等）
                 downloaded_files = glob.glob(os.path.join(download_dir, "FMTQIK*.csv"))
@@ -103,4 +103,4 @@ if __name__ == "__main__":
     dir = crawl_twse_data()
     repair_csv_files(dir)  # 將剛下載的 CSV 進行亂碼修復
     repair_csv(dir)
-    #remove_special_line(dir)  # 去除特定行
+    remove_special_line(dir)  # 去除特定行

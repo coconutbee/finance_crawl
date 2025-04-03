@@ -10,8 +10,11 @@ def repair_csv_files(root):
     for _, subdirs, files in os.walk(root):
         for file in subdirs:
             csv_dir = os.path.join(root, file)
+            print(f"目前處理的資料夾: {csv_dir}")
             for csv_file in os.listdir(csv_dir):
-                ori = os.path.join(csv_dir, csv_file)   
+                ori = os.path.join(csv_dir, csv_file)
+                print(csv_file)   
+                print(f"處理檔案: {ori}")
                 # 讀取目前錯誤的 UTF-8 檔案（內容其實是先前錯誤解碼後的結果）
                 # 改為以二進位模式讀取檔案
                 with open(ori, 'rb') as f:
@@ -42,5 +45,5 @@ def repair_csv_files(root):
 
 
 if __name__ == "__main__":
-    root = "Balance_Sheet"
+    root = "Financial_Analysis"
     repair_csv_files(root)

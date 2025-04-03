@@ -51,6 +51,6 @@ def remove_special_line(parent_folder):
             
         print(f"csv去除特定列，處理完畢")
 if __name__ == "__main__":
-    parent_folder = "twse_data"
-    # repair_csv(parent_folder)
-    remove_special_line(parent_folder)
+    parent_folder = "Financial_Analysis"
+    repair_csv(parent_folder)
+    # remove_special_line(parent_folder)

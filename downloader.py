@@ -44,7 +44,7 @@ def download_csv_files(name: str, url: str, result: str) -> str:
     # 6. 設定下載 CSV 所需的 POST 參數與目標 URL
     # 依據表單，下載 URL 應該為 "/server-java/t105sb02"，完整 URL 請依照實際情況調整
     download_url = "https://mopsov.twse.com.tw/server-java/t105sb02"
-    # web_list_url = ["https://mopsov.twse.com.tw/mops/#/web/t163sb05", "https://mopsov.twse.com.tw/mops/#/web/t163sb04"] #"https://mopsov.twse.com.tw/mops/web/ajax_t163sb20", 
+    # web_list_url = ["https://mopsov.twse.com.tw/mops/#/web/t163sb05", "https://mopsov.twse.com.tw/mops/#/web/t163sb04"] #"https://mopsov.twse.com.tw/mops/web/ajax_t163sb20", https://mops.twse.com.tw/mops/#/web/t51sb02
     # for web_url in web_list_url:
     if result == "t163sb05":
         download_folder = "Balance_Sheet"
@@ -52,7 +52,7 @@ def download_csv_files(name: str, url: str, result: str) -> str:
         download_folder = "Income_Statement"
     elif result == "t163sb20":
         download_folder = "Cash_Flow"
-    elif result == "t163sb02":
+    elif result == "t51sb02":
         download_folder = "Financial_Analysis"
     else:
         download_folder = "Others"

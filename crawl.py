@@ -51,7 +51,7 @@ def get_query_links(main_url, years, quarters):
             
             # 切換到新視窗，等待該視窗載入完成
             driver.switch_to.window(new_window)
-            time.sleep(3)  # 根據實際情況調整
+            time.sleep(2)  # 根據實際情況調整
 
             current_url = driver.current_url
             print(f"取得 {year} {quarter} 的查詢結果頁連結: {current_url}")
@@ -60,14 +60,15 @@ def get_query_links(main_url, years, quarters):
             # 關閉新視窗，切回主視窗
             driver.close()
             driver.switch_to.window(main_window)
-            time.sleep(2)
+            time.sleep(1)
     
     driver.quit()
     return links
 
 def main():
     # 使用者輸入查詢頁面 URL（例如 MOPS 查詢頁面）
-    web_list_url = ["https://mops.twse.com.tw/mops/#/web/t51sb02","https://mops.twse.com.tw/mops/#/web/t163sb20","https://mops.twse.com.tw/mops/#/web/t163sb05", "https://mops.twse.com.tw/mops/#/web/t163sb04"] 
+    #"https://mops.twse.com.tw/mops/#/web/t51sb02",
+    web_list_url = ["https://mops.twse.com.tw/mops/#/web/t163sb20","https://mops.twse.com.tw/mops/#/web/t163sb05", "https://mops.twse.com.tw/mops/#/web/t163sb04"] 
     cleaned_urls = [url.strip() for url in web_list_url]
     print("清理後的查詢頁面 URL：", cleaned_urls)
     for web_url in web_list_url:
