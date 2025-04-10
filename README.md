@@ -24,3 +24,9 @@
 2. 執行 TWSE_crawl.py 以爬取 TWSE 每日歷史數據
    ```bash
    python TWSE_crawl.py
+3. 執行 withdraw_names.py 把公司代號與名稱取出來
+   ```bash
+   python withdraw_names.py
+4. 執行 sort_company_record.py 依照公司代號來把報表依照公司分出來(先執行3.再執行4.)
+   ```bash
+   python sort_company_record.py
